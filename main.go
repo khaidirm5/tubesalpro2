@@ -42,21 +42,19 @@ func main() {
 		case 7:
 			SortByKategoriInsertion() 
 			
-		// Menu temanmu diarahkan ke pesan "Belum Aktif" dulu agar tidak error saat di-run
 		case 8:
-			fmt.Println("⏳ Menu ini sedang dikerjakan oleh khaidir.")
+            SequentialSearchKategori()
 
-		case 9:
-			fmt.Println("⏳ Menu ini sedang dikerjakan oleh khaidir.")
-	
-		case 10:
-			fmt.Println("⏳ Menu ini sedang dikerjakan oleh khaidir.")
-			
+        case 9:
+            BinarySearchKategori()
+
+        case 10:
+            LaporanBudget()
 			
 		case 0:
 			fmt.Println("Terima kasih telah menggunakan aplikasi ini!")
 		default:
-			fmt.Println("⚠️ Pilihan tidak valid. Silakan coba lagi.")
+			fmt.Println("Pilihan tidak valid. Silakan coba lagi.")
 		}
 	}
 }
