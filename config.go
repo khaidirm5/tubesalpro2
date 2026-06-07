@@ -2,10 +2,8 @@ package main
 
 // STRUKTUR DATA UTAMA
 type Pengeluaran struct {
-	ID       int
-	Nama     string
-	Kategori string // "transportasi", "akomodasi", "makanan", "hiburan"
-	Jumlah   int
+	ID, Jumlah int
+	Nama, Kategori string
 }
 
 const MaksData = 1000
