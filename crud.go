@@ -15,22 +15,18 @@ func readLine(prompt string) string {
 	return strings.TrimSpace(input)
 }
 
-func flushInput() {
-	reader.ReadString('\n')
-}
-
 // Set Budget Awal
 func SetBudget() {
-	fmt.Print("Masukkan Total Budget Perjalanan (Rp): ")
-	fmt.Scan(&budgetAwal)
-	flushInput()
-	fmt.Println("✓ Budget awal berhasil diatur!")
+    fmt.Print("Masukkan Total Budget Perjalanan (Rp): ")
+    fmt.Scan(&budgetAwal)
+    fmt.Println("✓ Budget awal berhasil diatur!")
+    fmt.Println("Budget saat ini: Rp", budgetAwal)
 }
 
 // Tambah Data Pengeluaran (CREATE)
 func TambahPengeluaran() {
 	if totalData >= MaksData {
-		fmt.Println("⚠️ Kapasitas penyimpanan penuh!")
+		fmt.Println("Kapasitas penyimpanan penuh!")
 		return
 	}
 
@@ -41,8 +37,7 @@ func TambahPengeluaran() {
 	p.Kategori = readLine("Masukkan Kategori (transportasi/akomodasi/makanan/hiburan): ")
 	fmt.Print("Masukkan Jumlah Pengeluaran (Rp): ")
 	fmt.Scan(&p.Jumlah)
-	flushInput()
-
+    
 	daftarPengeluaran[totalData] = p
 	totalData++
 	fmt.Println("✓ Data pengeluaran berhasil ditambahkan!")
@@ -75,7 +70,6 @@ func UbahPengeluaran() {
 	var idTarget int
 	fmt.Print("Masukkan ID Pengeluaran yang ingin diubah: ")
 	fmt.Scan(&idTarget)
-	flushInput()
 
 	indexFound := -1
 	for i := 0; i < totalData; i++ {
@@ -86,7 +80,7 @@ func UbahPengeluaran() {
 	}
 
 	if indexFound == -1 {
-		fmt.Println("❌ ID tidak ditemukan!")
+		fmt.Println(" ID tidak ditemukan!")
 		return
 	}
 
@@ -95,8 +89,7 @@ func UbahPengeluaran() {
 	daftarPengeluaran[indexFound].Kategori = readLine("Masukkan Kategori Baru: ")
 	fmt.Print("Masukkan Jumlah Baru (Rp): ")
 	fmt.Scan(&daftarPengeluaran[indexFound].Jumlah)
-	flushInput()
-
+    
 	fmt.Println("✓ Data berhasil diperbarui!")
 }
 
@@ -110,8 +103,7 @@ func HapusPengeluaran() {
 	var idTarget int
 	fmt.Print("Masukkan ID Pengeluaran yang ingin dihapus: ")
 	fmt.Scan(&idTarget)
-	flushInput()
-
+    
 	indexFound := -1
 	for i := 0; i < totalData; i++ {
 		if daftarPengeluaran[i].ID == idTarget {
@@ -121,7 +113,7 @@ func HapusPengeluaran() {
 	}
 
 	if indexFound == -1 {
-		fmt.Println("❌ ID tidak ditemukan!")
+		fmt.Println(" ID tidak ditemukan!")
 		return
 	}
 
