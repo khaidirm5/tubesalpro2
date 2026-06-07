@@ -220,8 +220,7 @@ Proyek ini dibuat untuk mengimplementasikan konsep:
 
 ## Authors
 
-Kelompok Tugas Besar Algoritma Pemrograman
-
-Program Studi D3 Sistem Informasi
+- Abdurrahman
+- Khaidir Maulana
 
 Telkom University
