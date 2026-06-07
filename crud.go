@@ -10,9 +10,10 @@ import (
 var reader = bufio.NewReader(os.Stdin)
 
 func readLine(prompt string) string {
-	fmt.Print(prompt)
-	input, _ := reader.ReadString('\n')
-	return strings.TrimSpace(input)
+    fmt.Print(prompt)
+    reader := bufio.NewReader(os.Stdin)
+    text, _ := reader.ReadString('\n')
+    return strings.TrimSpace(text)
 }
 
 // Set Budget Awal
@@ -62,35 +63,35 @@ func TampilSemua() {
 
 // Ubah Data Pengeluaran (UPDATE)
 func UbahPengeluaran() {
-	if totalData == 0 {
-		fmt.Println(" Data kosong, tidak ada yang bisa diubah.")
-		return
-	}
+    if totalData == 0 {
+        fmt.Println(" Data kosong, tidak ada yang bisa diubah.")
+        return
+    }
 
-	var idTarget int
-	fmt.Print("Masukkan ID Pengeluaran yang ingin diubah: ")
-	fmt.Scan(&idTarget)
+    var idTarget int
+    fmt.Print("Masukkan ID Pengeluaran yang ingin diubah: ")
+    fmt.Scan(&idTarget)
 
-	indexFound := -1
-	for i := 0; i < totalData; i++ {
-		if daftarPengeluaran[i].ID == idTarget {
-			indexFound = i
-			break
-		}
-	}
+    indexFound := -1
+    for i := 0; i < totalData; i++ {
+        if daftarPengeluaran[i].ID == idTarget {
+            indexFound = i
+            break
+        }
+    }
 
-	if indexFound == -1 {
-		fmt.Println(" ID tidak ditemukan!")
-		return
-	}
+    if indexFound == -1 {
+        fmt.Println(" ID tidak ditemukan!")
+        return
+    }
 
-	fmt.Printf("Data Lama: %s (%s) - Rp%d\n", daftarPengeluaran[indexFound].Nama, daftarPengeluaran[indexFound].Kategori, daftarPengeluaran[indexFound].Jumlah)
-	daftarPengeluaran[indexFound].Nama = readLine("Masukkan Nama Baru: ")
-	daftarPengeluaran[indexFound].Kategori = readLine("Masukkan Kategori Baru: ")
-	fmt.Print("Masukkan Jumlah Baru (Rp): ")
-	fmt.Scan(&daftarPengeluaran[indexFound].Jumlah)
+    fmt.Printf("Data Lama: %s (%s) - Rp%d\n", daftarPengeluaran[indexFound].Nama, daftarPengeluaran[indexFound].Kategori, daftarPengeluaran[indexFound].Jumlah)
+    daftarPengeluaran[indexFound].Nama = readLine("Masukkan Nama Baru: ")
+    daftarPengeluaran[indexFound].Kategori = readLine("Masukkan Kategori Baru: ")
+    fmt.Print("Masukkan Jumlah Baru (Rp): ")
+    fmt.Scan(&daftarPengeluaran[indexFound].Jumlah)
     
-	fmt.Println("✓ Data berhasil diperbarui!")
+    fmt.Println("✓ Data berhasil diperbarui!")
 }
 
 // Hapus Data Pengeluaran (DELETE)
