@@ -16,14 +16,15 @@ func main() {
 		fmt.Println("6. Urutkan Berdasarkan Jumlah (Selection Sort)")
 		fmt.Println("7. Urutkan Berdasarkan Kategori (Insertion Sort)")
 		
-		// --- MENU BAGIAN kahidir (DIBUAT NANTI) ---
-		fmt.Println("8. [Belum Aktif] Cari Kategori (Sequential Search)")
-		fmt.Println("9. [Belum Aktif] Cari Kategori (Binary Search)")
-		fmt.Println("10. [Belum Aktif] Lihat Laporan Keuangan & Saran")
+		// --- MENU BAGIAN kahidir (SEARCHING & LAPORAN) ---
+		fmt.Println("8. Cari Kategori (Sequential Search)")
+		fmt.Println("9. Cari Kategori (Binary Search)")
+		fmt.Println("10. Lihat Laporan Keuangan & Saran")
 		
 		fmt.Println("0. Keluar Aplikasi")
 		fmt.Print("Pilih menu (0-10): ")
 		fmt.Scan(&pilihan)
+		flushInput()
 
 		switch pilihan {
 		// Menghubungkan ke fungsi di file kamu (crud.go & sorting.go)

@@ -1,11 +1,29 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
+
+var reader = bufio.NewReader(os.Stdin)
+
+func readLine(prompt string) string {
+	fmt.Print(prompt)
+	input, _ := reader.ReadString('\n')
+	return strings.TrimSpace(input)
+}
+
+func flushInput() {
+	reader.ReadString('\n')
+}
 
 // Set Budget Awal
 func SetBudget() {
 	fmt.Print("Masukkan Total Budget Perjalanan (Rp): ")
 	fmt.Scan(&budgetAwal)
+	flushInput()
 	fmt.Println("✓ Budget awal berhasil diatur!")
 }
 
@@ -19,12 +37,11 @@ func TambahPengeluaran() {
 	var p Pengeluaran
 	p.ID = totalData + 1
 
-	fmt.Print("Masukkan Nama Pengeluaran: ")
-	fmt.Scan(&p.Nama)
-	fmt.Print("Masukkan Kategori (transportasi/akomodasi/makanan/hiburan): ")
-	fmt.Scan(&p.Kategori)
+	p.Nama = readLine("Masukkan Nama Pengeluaran: ")
+	p.Kategori = readLine("Masukkan Kategori (transportasi/akomodasi/makanan/hiburan): ")
 	fmt.Print("Masukkan Jumlah Pengeluaran (Rp): ")
 	fmt.Scan(&p.Jumlah)
+	flushInput()
 
 	daftarPengeluaran[totalData] = p
 	totalData++
@@ -58,6 +75,7 @@ func UbahPengeluaran() {
 	var idTarget int
 	fmt.Print("Masukkan ID Pengeluaran yang ingin diubah: ")
 	fmt.Scan(&idTarget)
+	flushInput()
 
 	indexFound := -1
 	for i := 0; i < totalData; i++ {
@@ -73,12 +91,11 @@ func UbahPengeluaran() {
 	}
 
 	fmt.Printf("Data Lama: %s (%s) - Rp%d\n", daftarPengeluaran[indexFound].Nama, daftarPengeluaran[indexFound].Kategori, daftarPengeluaran[indexFound].Jumlah)
-	fmt.Print("Masukkan Nama Baru: ")
-	fmt.Scan(&daftarPengeluaran[indexFound].Nama)
-	fmt.Print("Masukkan Kategori Baru: ")
-	fmt.Scan(&daftarPengeluaran[indexFound].Kategori)
+	daftarPengeluaran[indexFound].Nama = readLine("Masukkan Nama Baru: ")
+	daftarPengeluaran[indexFound].Kategori = readLine("Masukkan Kategori Baru: ")
 	fmt.Print("Masukkan Jumlah Baru (Rp): ")
 	fmt.Scan(&daftarPengeluaran[indexFound].Jumlah)
+	flushInput()
 
 	fmt.Println("✓ Data berhasil diperbarui!")
 }
@@ -93,6 +110,7 @@ func HapusPengeluaran() {
 	var idTarget int
 	fmt.Print("Masukkan ID Pengeluaran yang ingin dihapus: ")
 	fmt.Scan(&idTarget)
+	flushInput()
 
 	indexFound := -1
 	for i := 0; i < totalData; i++ {

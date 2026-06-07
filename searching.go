@@ -8,11 +8,8 @@ func SequentialSearchKategori() {
         return
     }
 
-    var kategori string
-    var ditemukan bool
-
-    fmt.Print("Masukkan kategori yang dicari: ")
-    fmt.Scan(&kategori)
+    kategori := readLine("Masukkan kategori yang dicari: ")
+    ditemukan := false
 
     fmt.Println("\nHASIL PENCARIAN (Sequential Search)")
     fmt.Println("---------------------------------------------------------")
@@ -47,10 +44,7 @@ func BinarySearchKategori() {
 
     SortByKategoriInsertion()
 
-    var kategori string
-
-    fmt.Print("Masukkan kategori yang dicari: ")
-    fmt.Scan(&kategori)
+    kategori := readLine("Masukkan kategori yang dicari: ")
 
     left := 0
     right := totalData - 1
