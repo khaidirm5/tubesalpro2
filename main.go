@@ -24,8 +24,7 @@ func main() {
 		fmt.Println("0. Keluar Aplikasi")
 		fmt.Print("Pilih menu (0-10): ")
 		fmt.Scan(&pilihan)
-		flushInput()
-
+        
 		switch pilihan {
 		// Menghubungkan ke fungsi di file kamu (crud.go & sorting.go)
 		case 1:
